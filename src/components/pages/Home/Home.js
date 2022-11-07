@@ -5,6 +5,7 @@ import useTitle from '../../Hook/useTitle';
 import './Home.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import viewer from '../../../assest/banner.png';
 
 
 const Home = () => {
@@ -71,7 +72,7 @@ const Home = () => {
             </div>
 
             {/* Services section started */}
-            <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-16 lg:justify-center">
+            <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-16 lg:justify-center bg-blue-50">
                 <div>
                     <h1 className="text-3xl font-bold sm:text-6xl">Our <span className=" text-blue-500">Services</span>
                     </h1>
@@ -80,8 +81,8 @@ const Home = () => {
                 </div>
                 <div className="max-w-xs rounded-md shadow-md m-3 mx-auto">
                     <PhotoProvider>
-                        <PhotoView src="/https://i.ibb.co/gVvXd5H/doctor-with-patient-6-A8-ZF4-L.jpg">
-                            <img className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" src="https://i.ibb.co/gVvXd5H/doctor-with-patient-6-A8-ZF4-L.jpg" alt="" />
+                        <PhotoView src={viewer}>
+                            <img className="object-cover object-center w-full rounded-t-md h-72 bg-gray-500" src={viewer} alt="" />
                         </PhotoView>
                     </PhotoProvider>
                     <div className="flex flex-col justify-between space-y-8">
@@ -98,10 +99,13 @@ const Home = () => {
                         <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-blue-700 text-white">Read more</button>
                     </div>
                 </div>
+                <div className='pt-20 pb-10 flex justify-center items-center'>
+                    <button type="button" className="flex items-center justify-center  px-7 py-3 font-semibold tracking-wide rounded-md bg-blue-700 hover:bg-blue-900 hover:text-white text-white">View All</button>
+                </div>
             </div>
 
             {/* Newsletter part started */}
-            <div className="container flex justify-center p-6 mx-auto sm:py-12 mb-20 mt-10 lg:py-16 lg:flex-row lg:justify-center items-center bg">
+            <div className="container flex justify-center p-6 mx-auto sm:py-12 mb-20 mt-20 lg:py-16 lg:flex-row lg:justify-center items-center bg">
                 <div>
                     <h1 className="text-5xl antialiased font-semibold leading-none text-center text-gray-100">Get Our Updates</h1>
                     <p className="pt-2 pb-8 text-xl antialiased text-center dark:text-gray-100">Find out about events and other news</p>

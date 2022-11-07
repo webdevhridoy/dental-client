@@ -4,8 +4,8 @@ import logo from '../../../assest/logo.png';
 
 const Header = () => {
     return (
-        <div className='container px-10 mx-auto '>
-            <div className="navbar bg-base-100">
+        <div className='container px-10 mx-auto bg-blue-50 sticky top-0 z-50'>
+            <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="lg:hidden">
