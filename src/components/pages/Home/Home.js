@@ -99,7 +99,7 @@ const Home = () => {
                         <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-blue-700 text-white">Read more</button>
                     </div>
                 </div>
-                <div className='pt-20 pb-10 flex justify-center items-center'>
+                <div className='pt-20 pb-5 flex justify-center items-center'>
                     <button type="button" className="flex items-center justify-center  px-7 py-3 font-semibold tracking-wide rounded-md bg-blue-700 hover:bg-blue-900 hover:text-white text-white">View All</button>
                 </div>
             </div>

@@ -1,7 +1,10 @@
 import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Link } from 'react-router-dom';
+import useTitle from '../../Hook/useTitle';
 
 const Services = () => {
+    useTitle('Services');
     return (
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-16 lg:justify-center">
             <div>
@@ -27,7 +30,7 @@ const Services = () => {
                         </div>
                     </div>
 
-                    <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-blue-700 text-white">Read more</button>
+                    <Link type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-blue-700 text-white">Read more</Link>
                 </div>
             </div>
         </div>

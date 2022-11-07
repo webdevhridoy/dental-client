@@ -6,7 +6,9 @@ import Header from '../../shared/Header/Header';
 const Main = () => {
     return (
         <div>
-            <Header></Header>
+            <div className='bg-blue-50 sticky top-0'>
+                <Header></Header>
+            </div>
             <Outlet></Outlet>
             <Footer></Footer>
         </div>
