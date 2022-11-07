@@ -1,3 +1,13 @@
 .customtitle {
     line-height: 1.3em;
 }
+
+.bg {
+    background: linear-gradient(#467AB9, rgba(0, 0, 0, 0.5)), url(../../../assest/donor-with-catheter-at-hospital-2021-04-05-00-42-24-utc.jpg);
+    background-size: cover;
+    background-position: center center;
+    height: 400px;
+    width: auto;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
