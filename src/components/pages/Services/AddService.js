@@ -8,12 +8,13 @@ const AddService = () => {
 
     const handleAddNew = (event) => {
         event.preventDefault();
+        console.log(products);
+        event.target.reset();
 
-        fetch('http://localhost:5000/service', {
+        fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                // authorization: `Bearer ${localStorage.getItem('admin-token')}`
             },
             body: JSON.stringify(products)
         })
@@ -21,7 +22,7 @@ const AddService = () => {
             .then(data => {
                 if (data.acknowledged) {
                     toast.success('New service has been created');
-                    event.target.reset();
+
                 }
                 else {
                     toast.success('Something error. do it again');
@@ -36,6 +37,7 @@ const AddService = () => {
         const newProducts = { ...products };
         newProducts[field] = value;
         setProducts(newProducts);
+        // console.log(newProducts);
     };
 
     return (

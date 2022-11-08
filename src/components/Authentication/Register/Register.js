@@ -1,28 +1,30 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../assest/logo.png';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const Register = () => {
-    const { createNewUser, LoginInWithGoogle, LoginInWithGithub } = useContext(AuthContext);
+    const { userProfileUpdate, createNewUser, LoginInWithGoogle, LoginInWithGithub } = useContext(AuthContext);
     const [showpass, setShowPass] = useState(false);
+    const navigate = useNavigate();
 
     const handleRegister = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
-        const photo = form.photoURL.value;
+        const photoURL = form.photoURL.value;
         const password = form.password.value;
-        console.log(name, email, photo, password);
+        console.log(name, email, photoURL, password);
 
         createNewUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                // navigate('/dashboard');
+                navigate('/');
                 toast.success('User has been created');
+                userUpdateProfile(name, photoURL);
                 // const currentUser = {
                 //     email: user.email
                 // };
@@ -44,6 +46,8 @@ const Register = () => {
             .catch(error => console.error(error));
     };
 
+
+
     const handleGoogle = () => {
         LoginInWithGoogle()
             .then(result => {
@@ -53,6 +57,20 @@ const Register = () => {
                 console.log(user);
             })
             .catch(error => console.error(error));
+    };
+
+    const userUpdateProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        };
+        userProfileUpdate(profile)
+            .then(result => {
+
+            })
+            .catch(error => {
+                console.error(error);
+            });
     };
 
     const handleGithub = () => {
@@ -85,7 +103,7 @@ const Register = () => {
                     </div>
                     <div className="bg-white shadow-lg rounded xl:w-1/3 lg:w-5/12 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-2 py-6">
                         <p tabIndex={0} className="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">
-                            Login to your account
+                            Register your account
                         </p>
                         <p tabIndex={0} className="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500">
                             Alread have an account?{" "}
