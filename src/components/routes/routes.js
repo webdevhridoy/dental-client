@@ -10,6 +10,8 @@ import ErrorPage from "../shared/ErrorPage/ErrorPage";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 import MyReviews from "../../components/MyReviews/MyReviews";
 import SingleService from "../pages/Services/SingleService";
+import SubmitReview from "../MyReviews/SubmitReview";
+import UpdateReview from "../MyReviews/UpdateReview";
 
 export const routes = createBrowserRouter([
     {
@@ -31,7 +33,17 @@ export const routes = createBrowserRouter([
             {
                 path: '/services/:id',
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
-                element: <SingleService></SingleService>
+                element: <SingleService></SingleService>,
+            },
+            {
+                path: '/service/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                element: <PrivateRoute><SubmitReview></SubmitReview></PrivateRoute>
+            },
+            {
+                path: '/my-reviews/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/my-reviews/${params.id}`),
+                element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>
             },
             {
                 path: '/blogs',

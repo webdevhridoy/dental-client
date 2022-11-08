@@ -67,11 +67,11 @@ const Header = () => {
 
                     {user?.uid || user?.email || user?.photoURL ?
                         <>
-                            <img className='mr-1' style={{ height: '40px', width: '40px', borderRadius: '50%' }} src={user?.photoURL} alt="" title={user?.displayName} />
+                            <img className='mr-3' style={{ height: '40px', width: '40px', borderRadius: '50%' }} src={user?.photoURL} alt="" title={user?.displayName} />
                         </>
                         :
                         <>
-                            <img style={{ height: '40px', width: '40px', borderRadius: '50%' }} src={userProfile} alt="" title={user?.displayName} />
+                            <img className='mr-3' style={{ height: '40px', width: '40px', borderRadius: '50%' }} src={userProfile} alt="" title={user?.displayName} />
 
                         </>
                     }

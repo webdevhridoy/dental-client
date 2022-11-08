@@ -3,23 +3,23 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 
 const ServicesGrid = ({ product }) => {
-    console.log(product);
+    // console.log(product);
     const { photoURL, title, _id, rating, price, textarea, time } = product;
     return (
         <div className="max-w-xs rounded-md shadow-md m-3 mx-auto">
             <PhotoProvider>
-                <PhotoView src={{ photoURL }}>
+                <PhotoView src={photoURL}>
                     <img className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" src={photoURL} alt="" />
                 </PhotoView>
             </PhotoProvider>
             <div className="flex flex-col justify-between space-y-8">
 
                 <div className="mt-2 text-start mx-2">
-                    <h2 className="text-2xl font-semibold tracking-wide mt-2">{title.toLowerCase()}</h2>
+                    <h2 className="text-2xl font-semibold tracking-wide mt-2">{title}</h2>
                     <p className='text-lg mt-1'>
                         {textarea.length > 100 ?
                             <>
-                                {textarea.slice(0, 110) + '...'}
+                                {textarea.slice(0, 100) + '...'}
                             </>
                             :
                             <>

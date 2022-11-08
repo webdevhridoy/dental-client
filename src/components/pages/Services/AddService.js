@@ -3,12 +3,12 @@ import toast from 'react-hot-toast';
 import useTitle from '../../Hook/useTitle';
 
 const AddService = () => {
-    const [products, setProducts] = useState({});
+    const [services, setServices] = useState({});
     useTitle('Add New Products');
 
     const handleAddNew = (event) => {
         event.preventDefault();
-        console.log(products);
+        // console.log(services);
         event.target.reset();
 
         fetch('http://localhost:5000/services', {
@@ -16,7 +16,7 @@ const AddService = () => {
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(products)
+            body: JSON.stringify(services)
         })
             .then(res => res.json())
             .then(data => {
@@ -33,10 +33,10 @@ const AddService = () => {
     const handleOnBlur = event => {
         const field = event.target.name;
         const value = event.target.value;
-        console.log(field, value);
-        const newProducts = { ...products };
+        // console.log(field, value);
+        const newProducts = { ...services };
         newProducts[field] = value;
-        setProducts(newProducts);
+        setServices(newProducts);
         // console.log(newProducts);
     };
 

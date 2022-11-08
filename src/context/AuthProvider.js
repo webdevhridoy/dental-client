@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
     }, []);
 
 
-    const authInfo = { user, createNewUser, userSignIn, userSignOut, loading, LoginInWithGoogle, LoginInWithGithub, userProfileUpdate };
+    const authInfo = { user, createNewUser, userSignIn, userSignOut, loading, LoginInWithGoogle, LoginInWithGithub, userProfileUpdate, setLoading };
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

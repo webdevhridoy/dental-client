@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../../assest/logo.png';
 import { AuthContext } from '../../../context/AuthProvider';
 
@@ -9,20 +9,24 @@ const Login = () => {
     const { userSignIn, LoginInWithGoogle, LoginInWithGithub } = useContext(AuthContext);
     const [showpass, setShowPass] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
+
 
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
 
         userSignIn(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
                 toast.success('Logged Now!');
-                navigate('/');
                 // const currentUser = {
                 //     email: user.email
                 // };
