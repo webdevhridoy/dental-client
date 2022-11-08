@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import logo from '../../../assest/logo.png';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const Header = () => {
+    const { user, userSignOut } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        userSignOut()
+            .then(() => {
+                toast.success('Log out successfully!');
+            })
+            .then(error => console.error(error));
+    };
+
     return (
         <div className='container px-10 mx-auto bg-blue-50'>
             <div className="navbar">
@@ -27,25 +39,42 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/login' className="bg-blue-700 px-3 py-2 text-xl text-white flex flex-row justify-center items-center rounded-lg hover:bg-blue-900 hover:text-white duration-500 ease-in-out">
-                        <span className='ml-2 flex justify-between items-center'>
-                            <span>Login</span>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                            </svg>
-                            </span>
-                        </span>
-                    </Link>
-                    <Link to='/services/add-new-service' className="bg-blue-700 px-3 py-2 text-xl text-white flex flex-row justify-center items-center rounded-lg hover:bg-blue-900 hover:text-white duration-500 ease-in-out ml-2">
-                        <span className='ml-2 flex justify-between items-center'>
-                            <span>Add Service</span>
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ml-1">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </span>
-                        </span>
-                    </Link>
+                    {user?.uid ?
+                        <>
+                            <Link to='/services/add-new-service' className="bg-blue-700 px-3 py-2 text-xl text-white flex flex-row justify-center items-center rounded-lg hover:bg-blue-900 hover:text-white duration-500 ease-in-out mr-2">
+                                <span className='ml-2 flex justify-between items-center'>
+                                    <span>Add Service</span>
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ml-1">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </span>
+                                </span>
+                            </Link>
+                            <Link onClick={handleSignOut} className="bg-blue-700 px-3 py-2 text-xl text-white flex flex-row justify-center items-center rounded-lg hover:bg-blue-900 hover:text-white duration-500 ease-in-out">
+                                <span className='ml-2 flex justify-between items-center'>
+                                    <span>Sign out</span>
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                                    </svg>
+                                    </span>
+                                </span>
+                            </Link>
+                        </>
+                        :
+                        <>
+
+                            <Link to='/login' className="bg-blue-700 px-3 py-2 text-xl text-white flex flex-row justify-center items-center rounded-lg hover:bg-blue-900 hover:text-white duration-500 ease-in-out mr-2">
+                                <span className='ml-2 flex justify-between items-center'>
+                                    <span>Login</span>
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                                    </svg>
+                                    </span>
+                                </span>
+                            </Link>
+                        </>
+                    }
                 </div>
             </div>
         </div>
