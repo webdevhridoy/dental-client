@@ -31,7 +31,7 @@ const Login = () => {
                 //     email: user.email
                 // };
                 // console.log(currentUser);
-                // fetch('http://localhost:5000/', {
+                // fetch('https://bandaid-dental-server.vercel.app/', {
                 //     method: 'POST',
                 //     headers: {
                 //         'content-type': 'application/json'
