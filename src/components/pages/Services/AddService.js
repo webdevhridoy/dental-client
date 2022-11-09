@@ -11,7 +11,7 @@ const AddService = () => {
         // console.log(services);
         event.target.reset();
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://bandaid-dental-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

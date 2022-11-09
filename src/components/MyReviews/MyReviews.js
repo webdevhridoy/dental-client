@@ -9,7 +9,7 @@ const MyReviews = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/my-reviews?email=${user?.email}`, {
+        fetch(`https://bandaid-dental-server.vercel.app/my-reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('bandaid-token')}`
             }
@@ -29,7 +29,7 @@ const MyReviews = () => {
         // console.log(review);
         const agree = window.confirm(`Are you sure to delete: ${review?.serviceTitle}`);
         if (agree) {
-            fetch(`http://localhost:5000/my-reviews/${review._id}`, {
+            fetch(`https://bandaid-dental-server.vercel.app/my-reviews/${review._id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

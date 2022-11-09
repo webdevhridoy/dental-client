@@ -23,7 +23,7 @@ const UpdateReview = () => {
     const handleSubmitReview = (event) => {
         event.preventDefault();
 
-        fetch(`http://localhost:5000/my-reviews/${review._id}`, {
+        fetch(`https://bandaid-dental-server.vercel.app/my-reviews/${review._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -24,7 +24,7 @@ const SingleService = () => {
 
     // Review section function 
     useEffect(() => {
-        const url = `http://localhost:5000/my-review?reviewId=${_id}`;
+        const url = `https://bandaid-dental-server.vercel.app/my-review?reviewId=${_id}`;
         console.log(url);
 
         fetch(url)
@@ -57,7 +57,7 @@ const SingleService = () => {
             email: email,
             time: time
         };
-        fetch('http://localhost:5000/my-reviews', {
+        fetch('https://bandaid-dental-server.vercel.app/my-reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
