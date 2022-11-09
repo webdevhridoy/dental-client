@@ -13,11 +13,17 @@ const UpdateReview = () => {
 
     useTitle('Update Your Product');
 
+    const current = new Date();
+    const times = current.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true
+    });
 
     const handleSubmitReview = (event) => {
         event.preventDefault();
 
-        fetch(`https://bandaid-dental-server.vercel.app/my-reviews/${review._id}`, {
+        fetch(`http://localhost:5000/my-reviews/${review._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -63,7 +69,7 @@ const UpdateReview = () => {
                         <input onBlur={handleOnBlur} required type="rating" name="rating" id="rating" placeholder="Rating: 5*" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
                     </div>
                     <div className="space-y-1 text-sm">
-                        <input onBlur={handleOnBlur} required type="time" name="time" id="time" placeholder="current time" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
+                        <input onBlur={handleOnBlur} defaultValue={times} required name="time" id="time" placeholder="current time" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
                     </div>
                     <div className="space-y-1 text-sm">
                         <input onBlur={handleOnBlur} defaultValue={user?.email} required type="email" name="email" id="email" placeholder="Write Your email" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />

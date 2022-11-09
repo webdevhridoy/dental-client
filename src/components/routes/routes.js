@@ -32,17 +32,17 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/services/:id',
-                loader: ({ params }) => fetch(`https://bandaid-dental-server.vercel.app/services/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
                 element: <SingleService></SingleService>,
             },
             {
                 path: '/service/:id',
-                loader: ({ params }) => fetch(`https://bandaid-dental-server.vercel.app/services/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
                 element: <PrivateRoute><SubmitReview></SubmitReview></PrivateRoute>
             },
             {
                 path: '/my-reviews/:id',
-                loader: ({ params }) => fetch(`https://bandaid-dental-server.vercel.app/my-reviews/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/my-reviews/${params.id}`),
                 element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>
             },
             {

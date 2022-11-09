@@ -27,23 +27,25 @@ const Register = () => {
                 toast.success('User has been created');
                 navigate(from, { replace: true });
                 userUpdateProfile(name, photoURL);
-                // const currentUser = {
-                //     email: user.email
-                // };
-                // console.log(currentUser);
-                // fetch('https://bandaid-dental-server.vercel.app//jwt', {
-                //     method: 'POST',
-                //     headers: {
-                //         'content-type': 'application/json'
-                //     },
-                //     body: JSON.stringify(currentUser)
-                // })
-                //     .then(res => res.json())
-                //     .then(data => {
-                //         console.log(data);
-                //         localStorage.setItem('admin-token', data.token);
-                //         // form.reset();
-                //     });
+
+                const currentUser = {
+                    email: user.email
+                };
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('bandaid-token', data.token);
+                        form.reset();
+
+                    });
             })
             .catch(error => console.error(error));
     };

@@ -35,6 +35,7 @@ const AuthProvider = ({ children }) => {
     };
 
     const userSignOut = () => {
+        localStorage.removeItem('bandaid-token');
         return signOut(auth);
     };
 

@@ -4,7 +4,7 @@ import useTitle from '../Hook/useTitle';
 
 const MyReviewsData = ({ review, handleDelete }) => {
     const { serviceTitle, rewiewDetails, _id, rating, userImage, time } = review;
-    // console.log(review);
+
     useTitle('My-Reviews');
     return (
         <div className=" lg:mr-7 lg:mb-0 mb-7 bg-white p-6 shadow-lg rounded hover:shadow-xl duration-500 ease-in-out m-2">

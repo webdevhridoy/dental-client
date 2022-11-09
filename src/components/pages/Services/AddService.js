@@ -11,7 +11,7 @@ const AddService = () => {
         // console.log(services);
         event.target.reset();
 
-        fetch('https://bandaid-dental-server.vercel.app/services', {
+        fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -29,6 +29,13 @@ const AddService = () => {
                 }
             });
     };
+
+    const current = new Date();
+    const times = current.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true
+    });
 
     const handleOnBlur = event => {
         const field = event.target.name;
@@ -76,7 +83,7 @@ const AddService = () => {
                             <label className="label">
                                 <span className="label-text">Current Time</span>
                             </label>
-                            <input onBlur={handleOnBlur} type="time" name="time" id="" className="input input-bordered rounded-lg w-3/4" />
+                            <input onBlur={handleOnBlur} defaultValue={times} name="time" id="" className="input input-bordered rounded-lg w-3/4" />
                         </div>
                         <div className='flex flex-col md:flex-row justify-between items-center my-5'>
                             <label className="label">

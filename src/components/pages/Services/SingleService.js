@@ -15,6 +15,25 @@ const SingleService = () => {
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
 
+    const times = current.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true
+    });
+
+
+    // Review section function 
+    useEffect(() => {
+        const url = `http://localhost:5000/my-review?reviewId=${_id}`;
+        console.log(url);
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setReviews(data));
+    }, [_id]);
+
+
+
     const handleSubmitReview = event => {
         event.preventDefault();
 
@@ -38,7 +57,7 @@ const SingleService = () => {
             email: email,
             time: time
         };
-        fetch('https://bandaid-dental-server.vercel.app/my-reviews', {
+        fetch('http://localhost:5000/my-reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -60,12 +79,7 @@ const SingleService = () => {
 
     };
 
-    // Review section function 
-    useEffect(() => {
-        fetch('https://bandaid-dental-server.vercel.app/my-reviews')
-            .then(res => res.json())
-            .then(data => setReviews(data));
-    }, []);
+
 
     return (
         <div className='container p-6 mx-auto'>
@@ -99,12 +113,21 @@ const SingleService = () => {
                             What People Say About Me.
                         </h2>
                         {
-                            reviews.map(review => <ServicePageReview
-                                key={review._id}
-                                review={review}
-                            >
-                            </ServicePageReview>)
+                            reviews.length === 0 ?
+                                <>
+                                    <h1 className='text-blue-700 text-1xl text-center font-bold sm:text-xl p-6'>No Reviews Were Added</h1>
+                                </>
+                                :
+                                <>
+                                    {
+                                        reviews.map(review => <ServicePageReview
+                                            key={review._id}
+                                            review={review}
+                                        ></ServicePageReview>)
+                                    }
+                                </>
                         }
+
                     </div>
                 </div>
                 <div className='py-20'>
@@ -126,13 +149,14 @@ const SingleService = () => {
                                         <input readOnly defaultValue={user?.photoURL} required type="text" name="photoURL" id="photoURL" className="w-full px-4 py-3 border border-gray-600  rounded-md text-black " />
                                     </div>
                                     <div className="space-y-1 text-sm">
-                                        <input required type="rating" name="rating" id="rating" placeholder="current time" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
+                                        <input required type="rating" name="rating" id="rating" placeholder="type rating" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
                                     </div>
                                     <div className="space-y-1 text-sm">
-                                        <input required type="time" name="time" id="time" placeholder="time: 5*" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
+                                        <input readOnly defaultValue={times} required name="time" id="time" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
                                     </div>
+
                                     <div className="space-y-1 text-sm">
-                                        <input defaultValue={user?.email} required type="email" name="email" id="email" placeholder="Write Your email" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
+                                        <input defaultValue={user?.email} required readOnly type="email" name="email" id="email" placeholder="Write Your email" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
                                     </div>
                                     <div className='mt-5'>
                                         <button type='submit' className='focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full'>Submit Review</button>

@@ -11,7 +11,7 @@ const Home = () => {
     useTitle('Home');
 
     useEffect(() => {
-        fetch('https://bandaid-dental-server.vercel.app/home-service',)
+        fetch('http://localhost:5000/home-service',)
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);

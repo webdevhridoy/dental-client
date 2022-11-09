@@ -29,7 +29,7 @@ const SubmitReview = () => {
             rating: rating,
             email: email
         };
-        fetch('https://bandaid-dental-server.vercel.app/my-reviews', {
+        fetch('http://localhost:5000/my-reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

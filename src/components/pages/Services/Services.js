@@ -7,7 +7,7 @@ const Services = () => {
     useTitle('Services');
 
     useEffect(() => {
-        fetch('https://bandaid-dental-server.vercel.app/services',)
+        fetch('http://localhost:5000/services',)
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);
