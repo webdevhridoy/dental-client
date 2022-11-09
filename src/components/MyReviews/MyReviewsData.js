@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 import useTitle from '../Hook/useTitle';
 
 const MyReviewsData = ({ review, handleDelete }) => {
+    const { user } = useContext(AuthContext);
     const { serviceTitle, rewiewDetails, _id, rating, userImage } = review;
     useTitle('My-Reviews');
     return (

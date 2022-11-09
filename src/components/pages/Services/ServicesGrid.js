@@ -3,8 +3,12 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 
 const ServicesGrid = ({ product }) => {
-    // console.log(product);
     const { photoURL, title, _id, rating, price, textarea, time } = product;
+    // console.log(product);
+
+    // product.sort((a, b) => {
+    //     return b.product.time - a.product.time;
+    // });
     return (
         <div className="max-w-xs rounded-md shadow-md m-3 mx-auto">
             <PhotoProvider>

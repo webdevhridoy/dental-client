@@ -52,7 +52,7 @@ const Login = () => {
         LoginInWithGoogle()
             .then(result => {
                 const user = result.user;
-                navigate('/');
+                navigate(from, { replace: true });
                 toast.success('Logged successfully done');
                 console.log(user);
             })
@@ -63,7 +63,7 @@ const Login = () => {
         LoginInWithGithub()
             .then(result => {
                 const user = result.user;
-                navigate('/');
+                navigate(from, { replace: true });
                 toast.success('Logged successfully done');
                 console.log(user);
             })

@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import useTitle from '../../Hook/useTitle';
 import ServicesGrid from './ServicesGrid';
 const Services = () => {
     const [prodcuts, setProducts] = useState([]);
+    useTitle('Services');
 
     useEffect(() => {
         fetch('https://bandaid-dental-server.vercel.app/services',)
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);
-    useTitle('Services');
+
+
+
     return (
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-16 lg:justify-center">
             <div>
@@ -19,7 +23,7 @@ const Services = () => {
                 <p className="mt-6 mb-8 text-lg mx-2 md:mx-52 sm:mb-12">The Bandaid Dental is a place where a dentist performs procedures and treatments on patients. A dental clinic ordinarily provides basic services, such as checkups, fillings and root canals.
                 </p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-3 '>
+            <div className='grid grid-cols-1 md:grid-cols-3'>
                 {
                     prodcuts.map(product => <ServicesGrid
                         key={product._id}

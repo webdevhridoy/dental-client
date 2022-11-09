@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../../assest/logo.png';
 import { AuthContext } from '../../../context/AuthProvider';
 
@@ -8,6 +8,8 @@ const Register = () => {
     const { userProfileUpdate, createNewUser, LoginInWithGoogle, LoginInWithGithub } = useContext(AuthContext);
     const [showpass, setShowPass] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -22,8 +24,8 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate('/');
                 toast.success('User has been created');
+                navigate(from, { replace: true });
                 userUpdateProfile(name, photoURL);
                 // const currentUser = {
                 //     email: user.email
@@ -53,6 +55,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 // navigate('/dashboard');
+                navigate(from, { replace: true });
                 toast.success('Logged successfully done');
                 console.log(user);
             })
@@ -78,6 +81,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 // navigate('/dashboard');
+                navigate(from, { replace: true });
                 toast.success('Logged successfully done');
                 console.log(user);
             })
