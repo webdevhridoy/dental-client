@@ -23,6 +23,7 @@ const SingleService = () => {
         const name = form.name.value;
         const photoURL = form.photoURL.value;
         const title = form.title.value;
+        const time = form.time.value;
         const rating = form.rating.value;
         const email = user?.email || 'unregisterd';
         // console.log({ rewiew, name, photoURL, title, rating, email });
@@ -34,7 +35,8 @@ const SingleService = () => {
             name: name,
             serviceTitle: title,
             rating: rating,
-            email: email
+            email: email,
+            time: time
         };
         fetch('https://bandaid-dental-server.vercel.app/my-reviews', {
             method: 'POST',
@@ -124,7 +126,10 @@ const SingleService = () => {
                                         <input readOnly defaultValue={user?.photoURL} required type="text" name="photoURL" id="photoURL" className="w-full px-4 py-3 border border-gray-600  rounded-md text-black " />
                                     </div>
                                     <div className="space-y-1 text-sm">
-                                        <input required type="rating" name="rating" id="rating" placeholder="Rating: 5*" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
+                                        <input required type="rating" name="rating" id="rating" placeholder="current time" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
+                                    </div>
+                                    <div className="space-y-1 text-sm">
+                                        <input required type="time" name="time" id="time" placeholder="time: 5*" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
                                     </div>
                                     <div className="space-y-1 text-sm">
                                         <input defaultValue={user?.email} required type="email" name="email" id="email" placeholder="Write Your email" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />

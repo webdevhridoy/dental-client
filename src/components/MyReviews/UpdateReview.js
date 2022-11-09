@@ -63,6 +63,9 @@ const UpdateReview = () => {
                         <input onBlur={handleOnBlur} required type="rating" name="rating" id="rating" placeholder="Rating: 5*" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
                     </div>
                     <div className="space-y-1 text-sm">
+                        <input onBlur={handleOnBlur} required type="time" name="time" id="time" placeholder="current time" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
+                    </div>
+                    <div className="space-y-1 text-sm">
                         <input onBlur={handleOnBlur} defaultValue={user?.email} required type="email" name="email" id="email" placeholder="Write Your email" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
                     </div>
                     <div className='mt-5'>

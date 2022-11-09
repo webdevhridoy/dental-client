@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
+import useTitle from '../../Hook/useTitle';
 
 
 const Blog = () => {
     const { user } = useContext(AuthContext);
+    useTitle('Blogs');
 
     return (
         <section class="bg-white">

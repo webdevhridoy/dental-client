@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthProvider';
 import useTitle from '../Hook/useTitle';
 
 const MyReviewsData = ({ review, handleDelete }) => {
-    const { user } = useContext(AuthContext);
-    const { serviceTitle, rewiewDetails, _id, rating, userImage } = review;
+    const { serviceTitle, rewiewDetails, _id, rating, userImage, time } = review;
+    // console.log(review);
     useTitle('My-Reviews');
     return (
         <div className=" lg:mr-7 lg:mb-0 mb-7 bg-white p-6 shadow-lg rounded hover:shadow-xl duration-500 ease-in-out m-2">
@@ -14,7 +13,14 @@ const MyReviewsData = ({ review, handleDelete }) => {
                 <div className="flex items-start justify-between w-full">
                     <div className="pl-3 w-full">
                         <p className="text-xl font-medium leading-5 text-gray-800">{serviceTitle}</p>
-                        <p className="text-sm leading-normal pt-2 text-gray-500">I gave: {rating}</p>
+                        <p className="text-sm leading-normal pt-2 text-gray-500 flex justify-center items-center">
+                            <span className='mr-2'>I gave: {rating}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+
+                            <span>{time}</span>
+                        </p>
                     </div>
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="m-1 cursor-pointer hover:text-blue-700">

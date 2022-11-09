@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import useTitle from '../../Hook/useTitle';
 import ServicesGrid from './ServicesGrid';
@@ -25,7 +24,7 @@ const Services = () => {
             </div>
             <div className='grid grid-cols-1 md:grid-cols-3'>
                 {
-                    prodcuts.map(product => <ServicesGrid
+                    prodcuts.sort((a, b) => a.time > b.time ? 1 : -1).map(product => <ServicesGrid
                         key={product._id}
                         product={product}
                     ></ServicesGrid>)
