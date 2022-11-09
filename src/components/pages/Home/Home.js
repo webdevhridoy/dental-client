@@ -86,7 +86,7 @@ const Home = () => {
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-3 '>
                     {
-                        prodcuts.sort((a, b) => a.time > b.time ? 1 : -1).map(product => <ServicesGrid
+                        prodcuts.map(product => <ServicesGrid
                             key={product._id}
                             product={product}
                         ></ServicesGrid>)

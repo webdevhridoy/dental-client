@@ -1,14 +1,12 @@
 import React from 'react';
-import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
+
 
 const ServicesGrid = ({ product }) => {
     const { photoURL, title, _id, rating, price, textarea, time } = product;
-    // console.log(product);
-
-    // product.sort((a, b) => {
-    //     return b.product.time - a.product.time;
-    // });
+    console.log(product);
     return (
         <div className="max-w-xs rounded-md shadow-md m-3 mx-auto">
             <PhotoProvider>
