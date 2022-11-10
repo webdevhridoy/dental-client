@@ -11,7 +11,7 @@ const UpdateReview = () => {
 
     const { rewiewDetails, serviceTitle } = review;
 
-    useTitle('Update Your Product');
+    useTitle('Update Your Review');
 
     const current = new Date().toLocaleString();
 
@@ -29,7 +29,7 @@ const UpdateReview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.matchedCount) {
-                    toast.success('Product has been updated');
+                    toast.success('Reivew has been updated');
                 }
 
             });

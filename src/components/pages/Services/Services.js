@@ -4,7 +4,7 @@ import ServicesGrid from './ServicesGrid';
 
 const Services = () => {
     const [loader, setLoader] = useState(true);
-    const [prodcuts, setProducts] = useState([]);
+    const [services, setServices] = useState([]);
     useTitle('Services');
 
 
@@ -12,7 +12,7 @@ const Services = () => {
         fetch('https://bandaid-dental-server.vercel.app/services',)
             .then(res => res.json())
             .then(data => {
-                setProducts(data);
+                setServices(data);
                 setLoader(false);
             });
     }, []);
@@ -30,9 +30,9 @@ const Services = () => {
             <div className='flex justify-center items-center'>
                 <div className='grid grid-cols-1 md:grid-cols-3 justify-center items-center gap-20'>
                     {
-                        prodcuts.map(product => <ServicesGrid
-                            key={product._id}
-                            product={product}
+                        services.map(service => <ServicesGrid
+                            key={service._id}
+                            service={service}
                         ></ServicesGrid>)
                     }
                     {loader && <div role="status" className='flex justify-center items-center'>

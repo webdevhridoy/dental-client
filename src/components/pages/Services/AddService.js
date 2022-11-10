@@ -4,7 +4,7 @@ import useTitle from '../../Hook/useTitle';
 
 const AddService = () => {
     const [services, setServices] = useState({});
-    useTitle('Add New Products');
+    useTitle('Add New Service');
 
     const handleAddNew = (event) => {
         event.preventDefault();
@@ -38,10 +38,9 @@ const AddService = () => {
         const field = event.target.name;
         const value = event.target.value;
         // console.log(field, value);
-        const newProducts = { ...services, current };
-        newProducts[field] = value;
-        setServices(newProducts);
-        // console.log(newProducts);
+        const newServices = { ...services, current };
+        newServices[field] = value;
+        setServices(newServices);
     };
 
     return (
@@ -80,7 +79,7 @@ const AddService = () => {
                             <label className="label">
                                 <span className="label-text">Description</span>
                             </label>
-                            <textarea onBlur={handleOnBlur} type="text" name="textarea" id="" cols="30" rows="10" placeholder="enter product long description" className="input input-bordered rounded-lg w-3/4"></textarea>
+                            <textarea onBlur={handleOnBlur} type="text" name="textarea" id="" cols="30" rows="10" placeholder="enter service long description" className="input input-bordered rounded-lg w-3/4"></textarea>
                         </div>
                         <div className='mt-10 text-center md:text-start'>
                             <button type='submit' className='bg-blue-700 text-xl text-white px-6 py-3 rounded-lg hover:bg-blue-900 hover:text-white duration-500 ease-in-out'>Add now</button>

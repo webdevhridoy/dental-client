@@ -7,13 +7,13 @@ import ServicesGrid from '../Services/ServicesGrid';
 
 
 const Home = () => {
-    const [prodcuts, setProducts] = useState([]);
+    const [services, setServices] = useState([]);
     useTitle('Home');
 
     useEffect(() => {
         fetch('https://bandaid-dental-server.vercel.app/home-service',)
             .then(res => res.json())
-            .then(data => setProducts(data));
+            .then(data => setServices(data));
     }, []);
     return (
 
@@ -86,9 +86,9 @@ const Home = () => {
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-3 '>
                     {
-                        prodcuts.map(product => <ServicesGrid
-                            key={product._id}
-                            product={product}
+                        services.map(service => <ServicesGrid
+                            key={service._id}
+                            service={service}
                         ></ServicesGrid>)
                     }
                 </div>

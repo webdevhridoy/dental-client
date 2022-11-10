@@ -4,9 +4,8 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
 
-const ServicesGrid = ({ product }) => {
-    const { photoURL, title, _id, rating, price, textarea, } = product;
-    // console.log(product);
+const ServicesGrid = ({ service }) => {
+    const { photoURL, title, _id, rating, price, textarea, } = service;
     return (
         <div className="max-w-xs rounded-md shadow-md m-3 mx-auto">
             <PhotoProvider>
