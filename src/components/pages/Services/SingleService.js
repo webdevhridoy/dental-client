@@ -8,7 +8,7 @@ const SingleService = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
     const serviceDetails = useLoaderData();
-    const { photoURL, title, _id, rating, price, textarea, time } = serviceDetails;
+    const { photoURL, title, _id, rating, price, textarea } = serviceDetails;
     const location = useLocation();
     // const from = location.state?.from?.pathname || '/';
 
@@ -83,14 +83,6 @@ const SingleService = () => {
                         <div className='flex justify-between items-center'>
                             <span className='bg-blue-100 py-2 rounded-md w-28 pl-2 ml-1'>Price: ${price}</span>
                             <span className='bg-blue-100 py-2 rounded-md w-28 pl-2 ml-1'>Rating: {rating} </span>
-                            <span className='bg-blue-100 py-2 rounded-md w-28 pl-2 ml-1 flex justify-start items-center'>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </span>
-                                <span className='ml-1'>{time}</span>
-                            </span>
                         </div>
                         <h1 className="text-2xl font-bold sm:text-3xl">{title}</h1>
                         <div>
