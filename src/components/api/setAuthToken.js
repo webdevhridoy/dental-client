@@ -12,7 +12,7 @@ export const setAuthToken = (user) => {
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             localStorage.setItem('bandaid-token', data.token);
         });
 };

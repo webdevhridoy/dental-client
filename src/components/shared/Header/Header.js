@@ -8,6 +8,8 @@ import userProfile from '../../../assest/userImage.png';
 const Header = () => {
     const { user, userSignOut } = useContext(AuthContext);
 
+
+    // sign out authentication start that from authProvider 
     const handleSignOut = () => {
         userSignOut()
             .then(() => {
@@ -17,6 +19,7 @@ const Header = () => {
     };
 
     return (
+        // Header area started
         <div className='container px-10 mx-auto bg-blue-50'>
             <div className="navbar">
                 <div className="navbar-start">

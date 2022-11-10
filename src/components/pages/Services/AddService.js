@@ -3,12 +3,13 @@ import toast from 'react-hot-toast';
 import useTitle from '../../Hook/useTitle';
 
 const AddService = () => {
-    const [services, setServices] = useState({});
     useTitle('Add New Service');
+    const [services, setServices] = useState({});
+    const current = new Date().toLocaleString();
 
+    // adding new service data to backend
     const handleAddNew = (event) => {
         event.preventDefault();
-        // console.log(services);
         event.target.reset();
 
         fetch('https://bandaid-dental-server.vercel.app/services', {
@@ -30,20 +31,17 @@ const AddService = () => {
             });
     };
 
-    const current = new Date().toLocaleString();
-
-
-
+    // passing filed and value to backend
     const handleOnBlur = event => {
         const field = event.target.name;
         const value = event.target.value;
-        // console.log(field, value);
         const newServices = { ...services, current };
         newServices[field] = value;
         setServices(newServices);
     };
 
     return (
+        // add new service section started
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 md:py-20 my-10 lg:justify-center">
             <div className='text-start'>
                 <div className='md:ml-5'>

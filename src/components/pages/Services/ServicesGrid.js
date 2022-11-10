@@ -7,6 +7,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 const ServicesGrid = ({ service }) => {
     const { photoURL, title, _id, rating, price, textarea, } = service;
     return (
+        // service grid started
         <div className="max-w-xs rounded-md shadow-md m-3 mx-auto">
             <PhotoProvider>
                 <PhotoView src={photoURL}>
@@ -33,7 +34,7 @@ const ServicesGrid = ({ service }) => {
                     </div>
                 </div>
 
-                <Link to={`/services/${_id}`} type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-blue-700 text-white">Read more</Link>
+                <Link to={`/services/${_id}`} type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-blue-700 text-white">View Details</Link>
             </div>
         </div>
     );

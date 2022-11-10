@@ -6,9 +6,11 @@ import useTitle from '../../Hook/useTitle';
 
 const Blog = () => {
     const { user } = useContext(AuthContext);
+    // cretaed own hook for dynamic page title
     useTitle('Blogs');
 
     return (
+        // queston area started
         <section className="bg-white">
             <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                 <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">

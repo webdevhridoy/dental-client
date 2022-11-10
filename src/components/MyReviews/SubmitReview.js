@@ -20,6 +20,7 @@ const SubmitReview = () => {
         const email = user?.email || 'unregisterd';
         // console.log({ rewiew, name, photoURL, title, rating, email });
 
+        // passing clients reviews to backend
         const review = {
             reviewId: _id,
             rewiewDetails: rewiew,
@@ -52,6 +53,7 @@ const SubmitReview = () => {
     };
     return (
         <div>
+            {/* clients submit reviews secitons */}
             <div className='py-20'>
                 {user?.uid || user?.email ?
                     <>

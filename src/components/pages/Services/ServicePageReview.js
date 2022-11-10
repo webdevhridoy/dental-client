@@ -1,9 +1,9 @@
 import React from 'react';
 
 const ServicePageReview = ({ review }) => {
-    console.log(review);
-    const { rewiewDetails, rating, name, userImage, current } = review;
+    const { rewiewDetails, rating, name, userImage } = review;
     return (
+        // service page review section
         <div className='shadow-xl my-3'>
             <div className="flex justify-between p-4 my-2">
                 <div className="flex space-x-4">

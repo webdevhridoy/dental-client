@@ -12,6 +12,7 @@ const Register = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
+    // email with password registration area
     const handleRegister = (event) => {
         event.preventDefault();
         setLoader(true);
@@ -25,7 +26,7 @@ const Register = () => {
         createNewUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 userUpdateProfile(name, photoURL);
 
                 const currentUser = {
@@ -41,7 +42,7 @@ const Register = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         localStorage.setItem('bandaid-token', data.token);
                         setLoader(false);
                         toast.success('User has been created');
@@ -54,7 +55,7 @@ const Register = () => {
     };
 
 
-
+    // register wtih google area
     const handleGoogle = () => {
         LoginInWithGoogle()
             .then(result => {
@@ -81,6 +82,7 @@ const Register = () => {
             });
     };
 
+    // register wtih github area
     const handleGithub = () => {
         LoginInWithGithub()
             .then(result => {
@@ -96,6 +98,7 @@ const Register = () => {
 
     return (
         <div>
+            {/* loading after login to the website */}
             <div>{loader &&
                 <div className='flex h-screen justify-center items-center' role="status">
                     <svg className="inline mr-2 w-20 h-20 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -105,6 +108,7 @@ const Register = () => {
                     <span className="sr-only">Loading...</span>
                 </div>}
             </div>
+            {/* login section started */}
             <div className='container flex flex-col-reverse justify-center p-6 mx-auto sm:py-12 lg:py-16 lg:flex-row lg:justify-between'>
                 <div className="bg-blue-50">
                     <div className="px-6 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">

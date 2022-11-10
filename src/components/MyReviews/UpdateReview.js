@@ -16,6 +16,7 @@ const UpdateReview = () => {
     const current = new Date().toLocaleString();
 
 
+    // Updating current reviews of the specific user
     const handleSubmitReview = (event) => {
         event.preventDefault();
 
@@ -35,6 +36,7 @@ const UpdateReview = () => {
             });
     };
 
+    // getting input value and passing on backend to update 
     const handleOnBlur = (event) => {
         const field = event.target.name;
         const value = event.target.value;

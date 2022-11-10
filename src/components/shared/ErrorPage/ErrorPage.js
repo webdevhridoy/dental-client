@@ -5,6 +5,7 @@ import useTitle from '../../Hook/useTitle';
 const ErrorPage = () => {
     useTitle('Error');
     return (
+        // error page started 
         <section className="flex items-center h-screen p-16 justify-center">
             <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
                 <div className="max-w-md text-center">

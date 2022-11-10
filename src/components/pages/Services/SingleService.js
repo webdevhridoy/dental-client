@@ -14,8 +14,6 @@ const SingleService = () => {
 
     const current = new Date().toLocaleString();
 
-
-
     // Review section function 
     useEffect(() => {
         const url = `https://bandaid-dental-server.vercel.app/my-review?reviewId=${_id}`;
@@ -25,7 +23,7 @@ const SingleService = () => {
     }, [_id]);
 
 
-
+    // passing single service reviews to backend
     const handleSubmitReview = event => {
         event.preventDefault();
 
@@ -36,7 +34,6 @@ const SingleService = () => {
         const title = form.title.value;
         const rating = form.rating.value;
         const email = user?.email || 'unregisterd';
-        // console.log({ rewiew, name, photoURL, title, rating, email });
 
         const review = {
             reviewId: _id,
@@ -73,6 +70,7 @@ const SingleService = () => {
 
 
     return (
+        // single service details started
         <div className='container p-6 mx-auto'>
             <div>
                 <div className=" bg-base-100 shadow-sm text-left">
@@ -113,6 +111,8 @@ const SingleService = () => {
 
                     </div>
                 </div>
+
+                {/* conditional rendering for if someone not logged to put their review */}
                 <div className='py-20'>
                     {user?.uid || user?.email ?
                         <>

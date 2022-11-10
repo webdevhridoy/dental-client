@@ -93,7 +93,7 @@ const Home = () => {
                     }
                 </div>
                 <div className='pt-20 pb-5 flex justify-center items-center'>
-                    <Link to='/services' type="button" className="flex items-center justify-center  px-7 py-3 font-semibold tracking-wide rounded-md bg-blue-700 hover:bg-blue-900 hover:text-white text-white">View All</Link>
+                    <Link to='/services' type="button" className="flex items-center justify-center  px-7 py-3 font-semibold tracking-wide rounded-md bg-blue-700 hover:bg-blue-900 hover:text-white text-white">See All</Link>
                 </div>
             </div>
 

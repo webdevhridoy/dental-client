@@ -7,6 +7,7 @@ const MyReviewsData = ({ review, handleDelete }) => {
 
     useTitle('My-Reviews');
     return (
+        // this is all reviews by grid system
         <div className=" lg:mr-7 lg:mb-0 mb-7 bg-white p-6 shadow-lg rounded hover:shadow-xl duration-500 ease-in-out m-2">
             <div className="flex items-center border-b border-gray-200 pb-6">
                 <img src={userImage} alt='' className="w-12 h-12 rounded-full" />

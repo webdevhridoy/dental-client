@@ -8,6 +8,7 @@ const Services = () => {
     useTitle('Services');
 
 
+    // getting services from backend
     useEffect(() => {
         fetch('https://bandaid-dental-server.vercel.app/services',)
             .then(res => res.json())
@@ -17,9 +18,8 @@ const Services = () => {
             });
     }, []);
 
-
-
     return (
+        // service section started and added map to get the full data and pass to another component to get object with details
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-16 lg:justify-center">
             <div>
                 <h1 className="text-3xl font-bold sm:text-6xl">Our <span className=" text-blue-500">Services</span>

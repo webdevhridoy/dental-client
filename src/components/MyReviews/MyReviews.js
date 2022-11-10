@@ -7,7 +7,7 @@ const MyReviews = () => {
     const { user, userSignOut } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
 
-
+    // getting specific account reviews by fileting query email
     useEffect(() => {
         fetch(`https://bandaid-dental-server.vercel.app/my-reviews?email=${user?.email}`, {
             headers: {
@@ -25,6 +25,7 @@ const MyReviews = () => {
             });
     }, [user?.email, userSignOut]);
 
+    // deleting speciic review of the specific user
     const handleDelete = (review) => {
         // console.log(review);
         const agree = window.confirm(`Are you sure to delete: ${review?.serviceTitle}`);
@@ -48,6 +49,7 @@ const MyReviews = () => {
     return (
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 md:py-20 my-10 lg:justify-center">
             <div className="py-8 w-full">
+                {/* added conditional rendering when the user haven't any review and added map to get the total reviews */}
                 <div >
                     {
                         reviews.length === 0 ?

@@ -15,6 +15,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
 
+    // email with password login area
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -25,7 +26,7 @@ const Login = () => {
         userSignIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 setLoader(true);
 
                 const currentUser = {
@@ -41,7 +42,7 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         localStorage.setItem('bandaid-token', data.token);
                         setLoader(false);
                         navigate(from, { replace: true });
@@ -54,13 +55,14 @@ const Login = () => {
             .catch(error => setError(error.message));
     };
 
+    // login wtih google area
     const handleGoogle = () => {
         LoginInWithGoogle()
             .then(result => {
                 const user = result.user;
                 navigate(from, { replace: true });
                 toast.success('Logged successfully done');
-                console.log(user);
+                // console.log(user);
                 const currentUser = {
                     email: user.email
                 };
@@ -74,13 +76,14 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         localStorage.setItem('bandaid-token', data.token);
                     });
             })
             .catch(error => console.error(error));
     };
 
+    // login with github area
     const handleGithub = () => {
         LoginInWithGithub()
             .then(result => {
@@ -98,11 +101,11 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         localStorage.setItem('bandaid-token', data.token);
                         toast.success('Logged successfully done');
                         navigate(from, { replace: true });
-                        console.log(user);
+                        // console.log(user);
                     });
             })
             .catch(error => console.error(error));
@@ -112,6 +115,7 @@ const Login = () => {
 
     return (
         <div>
+            {/* loading after login to the website */}
             <div>{loader &&
                 <div className='flex h-screen justify-center items-center' role="status">
                     <svg className="inline mr-2 w-20 h-20 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -121,6 +125,7 @@ const Login = () => {
                     <span className="sr-only">Loading...</span>
                 </div>}
             </div>
+            {/* login section started */}
             <div className='container flex flex-col-reverse justify-center p-6 mx-auto sm:py-12 lg:py-16 lg:flex-row lg:justify-between'>
                 <div className="bg-blue-50">
                     <div className="px-6 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
