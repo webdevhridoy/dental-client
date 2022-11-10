@@ -77,7 +77,7 @@ const AddService = () => {
                             <label className="label">
                                 <span className="label-text">Description</span>
                             </label>
-                            <textarea required onBlur={handleOnBlur} type="text" name="textarea" id="" cols="30" rows="10" placeholder="enter service long description" className="input input-bordered rounded-lg w-3/4"></textarea>
+                            <textarea minLength={150} required onBlur={handleOnBlur} type="text" name="textarea" id="" cols="30" rows="10" placeholder="enter service long description" className="input input-bordered rounded-lg w-3/4"></textarea>
                         </div>
                         <div className='mt-10 text-center md:text-start'>
                             <button type='submit' className='bg-blue-700 text-xl text-white px-6 py-3 rounded-lg hover:bg-blue-900 hover:text-white duration-500 ease-in-out'>Add now</button>
