@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import useTitle from '../Hook/useTitle';
 
 const MyReviewsData = ({ review, handleDelete }) => {
-    const { serviceTitle, rewiewDetails, _id, rating, userImage, time } = review;
+    const { serviceTitle, rewiewDetails, _id, rating, userImage } = review;
 
     useTitle('My-Reviews');
     return (
@@ -15,19 +15,14 @@ const MyReviewsData = ({ review, handleDelete }) => {
                         <p className="text-xl font-medium leading-5 text-gray-800">{serviceTitle}</p>
                         <p className="text-sm leading-normal pt-2 text-gray-500 flex justify-center items-center">
                             <span className='mr-2'>I gave: {rating}</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-
-                            <span>{time}</span>
                         </p>
                     </div>
                     <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="m-1 cursor-pointer hover:text-blue-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 20 20" fill="none">
-                                <path d="M4.16667 10.8334C4.62691 10.8334 5 10.4603 5 10.0001C5 9.53984 4.62691 9.16675 4.16667 9.16675C3.70643 9.16675 3.33334 9.53984 3.33334 10.0001C3.33334 10.4603 3.70643 10.8334 4.16667 10.8334Z" stroke="#A1A1AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M10 10.8334C10.4602 10.8334 10.8333 10.4603 10.8333 10.0001C10.8333 9.53984 10.4602 9.16675 10 9.16675C9.53976 9.16675 9.16666 9.53984 9.16666 10.0001C9.16666 10.4603 9.53976 10.8334 10 10.8334Z" stroke="#A1A1AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M15.8333 10.8334C16.2936 10.8334 16.6667 10.4603 16.6667 10.0001C16.6667 9.53984 16.2936 9.16675 15.8333 9.16675C15.3731 9.16675 15 9.53984 15 10.0001C15 10.4603 15.3731 10.8334 15.8333 10.8334Z" stroke="#A1A1AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                        <label tabIndex={0} className="m-1 cursor-pointer hover:text-blue-700 text-blue-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" width={25} height={25} viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16667 10.8334C4.62691 10.8334 5 10.4603 5 10.0001C5 9.53984 4.62691 9.16675 4.16667 9.16675C3.70643 9.16675 3.33334 9.53984 3.33334 10.0001C3.33334 10.4603 3.70643 10.8334 4.16667 10.8334Z" stroke="#2847C5" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M10 10.8334C10.4602 10.8334 10.8333 10.4603 10.8333 10.0001C10.8333 9.53984 10.4602 9.16675 10 9.16675C9.53976 9.16675 9.16666 9.53984 9.16666 10.0001C9.16666 10.4603 9.53976 10.8334 10 10.8334Z" stroke="#2847C5" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M15.8333 10.8334C16.2936 10.8334 16.6667 10.4603 16.6667 10.0001C16.6667 9.53984 16.2936 9.16675 15.8333 9.16675C15.3731 9.16675 15 9.53984 15 10.0001C15 10.4603 15.3731 10.8334 15.8333 10.8334Z" stroke="#2847C5" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </label>
                         <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 border-2 border-blue-300  w-52">
