@@ -164,19 +164,19 @@ const Register = () => {
                                         <label htmlFor="name" className="text-sm font-medium leading-none text-gray-800">
                                             Name
                                         </label>
-                                        <input id='name' type="text" name="name" placeholder="enter Name" className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                                        <input required id='name' type="text" name="name" placeholder="enter Name" className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
                                     </div>
                                     <div className='mt-2'>
                                         <label htmlFor="email" className="text-sm font-medium leading-none text-gray-800">
                                             Email
                                         </label>
-                                        <input id='email' type="email" name="email" placeholder="enter email" className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                                        <input required id='email' type="email" name="email" placeholder="enter email" className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
                                     </div>
                                     <div className='mt-2'>
                                         <label htmlFor="photo" className="text-sm font-medium leading-none text-gray-800">
                                             PhotoURl
                                         </label>
-                                        <input id='photo' type="text" name="photoURL" placeholder="enter photoURL" className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                                        <input required id='photo' type="text" name="photoURL" placeholder="enter photoURL" className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
                                     </div>
                                     {/* <div className='mt-2'>
                                     <label htmlFor="password" className="text-sm font-medium leading-none text-gray-800">
@@ -190,7 +190,7 @@ const Register = () => {
                                             Password{" "}
                                         </label>
                                         <div className="relative flex items-center justify-center">
-                                            <input id="myInput" type={showpass ? "text" : "password"} name="password" className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                                            <input required id="myInput" type={showpass ? "text" : "password"} name="password" className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
                                             <div onClick={() => setShowPass(!showpass)} className="absolute right-0 mt-2 mr-3 cursor-pointer">
                                                 <div id="show">
                                                     <svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

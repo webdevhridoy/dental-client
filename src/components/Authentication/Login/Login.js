@@ -9,6 +9,7 @@ const Login = () => {
     const { userSignIn, LoginInWithGoogle, LoginInWithGithub } = useContext(AuthContext);
     const [showpass, setShowPass] = useState(false);
     const [loader, setLoader] = useState(false);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -16,7 +17,6 @@ const Login = () => {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        setLoader(true);
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
@@ -26,6 +26,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setLoader(true);
 
                 const currentUser = {
                     email: user.email
@@ -50,7 +51,7 @@ const Login = () => {
                     });
 
             })
-            .catch(error => console.error(error));
+            .catch(error => setError(error.message));
     };
 
     const handleGoogle = () => {
@@ -170,7 +171,7 @@ const Login = () => {
                                         <label htmlFor="email" className="text-sm font-medium leading-none text-gray-800">
                                             Email
                                         </label>
-                                        <input id='email' type="email" name="email" placeholder="enter email" className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                                        <input required id='email' type="email" name="email" placeholder="enter email" className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
                                     </div>
 
                                     <div className="mt-2 w-full">
@@ -179,7 +180,7 @@ const Login = () => {
                                             Password{" "}
                                         </label>
                                         <div className="relative flex items-center justify-center">
-                                            <input id="myInput" type={showpass ? "text" : "password"} name="password" className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                                            <input required id="myInput" type={showpass ? "text" : "password"} name="password" className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
                                             <div onClick={() => setShowPass(!showpass)} className="absolute right-0 mt-2 mr-3 cursor-pointer">
                                                 <div id="show">
                                                     <svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -199,6 +200,9 @@ const Login = () => {
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div>
+                                        <p className='text-red-600 py-1'>{error}</p>
                                     </div>
                                     <div className='mt-5'>
                                         <button type='submit' className='focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full'>Create my account</button>
