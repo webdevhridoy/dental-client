@@ -53,31 +53,31 @@ const AddService = () => {
                             <label className="label">
                                 <span className="label-text">Service Title</span>
                             </label>
-                            <input onBlur={handleOnBlur} type="text" name="title" placeholder="enter service title" className="input input-bordered rounded-lg w-3/4" />
+                            <input required onBlur={handleOnBlur} type="text" name="title" placeholder="enter service title" className="input input-bordered rounded-lg w-3/4" />
                         </div>
                         <div className='flex flex-col md:flex-row justify-between items-center my-5'>
                             <label className="label">
                                 <span className="label-text">Rating</span>
                             </label>
-                            <input onBlur={handleOnBlur} type="text" name="rating" placeholder="enter service rating" className="input input-bordered rounded-lg w-3/4" />
+                            <input required onBlur={handleOnBlur} type="text" name="rating" placeholder="enter service rating" className="input input-bordered rounded-lg w-3/4" />
                         </div>
                         <div className='flex flex-col md:flex-row justify-between items-center my-5'>
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input onBlur={handleOnBlur} type="text" name="price" placeholder="enter price" className="input input-bordered rounded-lg w-3/4" />
+                            <input required onBlur={handleOnBlur} type="text" name="price" placeholder="enter price" className="input input-bordered rounded-lg w-3/4" />
                         </div>
                         <div className='flex flex-col md:flex-row justify-between items-center my-5'>
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input onBlur={handleOnBlur} type="text" name="photoURL" placeholder="enter Photo ULR" className="input input-bordered rounded-lg w-3/4" />
+                            <input required onBlur={handleOnBlur} type="text" name="photoURL" placeholder="enter Photo ULR" className="input input-bordered rounded-lg w-3/4" />
                         </div>
                         <div className='flex flex-col md:flex-row justify-between items-center my-5'>
                             <label className="label">
                                 <span className="label-text">Description</span>
                             </label>
-                            <textarea onBlur={handleOnBlur} type="text" name="textarea" id="" cols="30" rows="10" placeholder="enter service long description" className="input input-bordered rounded-lg w-3/4"></textarea>
+                            <textarea required onBlur={handleOnBlur} type="text" name="textarea" id="" cols="30" rows="10" placeholder="enter service long description" className="input input-bordered rounded-lg w-3/4"></textarea>
                         </div>
                         <div className='mt-10 text-center md:text-start'>
                             <button type='submit' className='bg-blue-700 text-xl text-white px-6 py-3 rounded-lg hover:bg-blue-900 hover:text-white duration-500 ease-in-out'>Add now</button>
