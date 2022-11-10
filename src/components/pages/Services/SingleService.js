@@ -12,21 +12,13 @@ const SingleService = () => {
     const location = useLocation();
     // const from = location.state?.from?.pathname || '/';
 
-    const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+    const current = new Date().toLocaleString();
 
-    const times = current.toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: true
-    });
 
 
     // Review section function 
     useEffect(() => {
         const url = `https://bandaid-dental-server.vercel.app/my-review?reviewId=${_id}`;
-        console.log(url);
-
         fetch(url)
             .then(res => res.json())
             .then(data => setReviews(data));
@@ -42,7 +34,6 @@ const SingleService = () => {
         const name = form.name.value;
         const photoURL = form.photoURL.value;
         const title = form.title.value;
-        const time = form.time.value;
         const rating = form.rating.value;
         const email = user?.email || 'unregisterd';
         // console.log({ rewiew, name, photoURL, title, rating, email });
@@ -55,7 +46,7 @@ const SingleService = () => {
             serviceTitle: title,
             rating: rating,
             email: email,
-            time: time
+            current: current
         };
         fetch('https://bandaid-dental-server.vercel.app/my-reviews', {
             method: 'POST',
@@ -103,7 +94,7 @@ const SingleService = () => {
                         </div>
                         <h1 className="text-2xl font-bold sm:text-3xl">{title}</h1>
                         <div>
-                            <span>By</span> <span className='font-bold'>{user?.displayName}</span> <span className='text-gray-600'>{date}</span>
+                            <span>By</span> <span className='font-bold'>{user?.displayName}</span> <span className='text-gray-600'>{current}</span>
                         </div>
                         <p className="mt-6  text-lg mr-2 sm:mb-6">{textarea}
                         </p>
@@ -152,12 +143,9 @@ const SingleService = () => {
                                         <input required type="rating" name="rating" id="rating" placeholder="type rating" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
                                     </div>
                                     <div className="space-y-1 text-sm">
-                                        <input readOnly defaultValue={times} required name="time" id="time" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
-                                    </div>
-
-                                    <div className="space-y-1 text-sm">
                                         <input defaultValue={user?.email} required readOnly type="email" name="email" id="email" placeholder="Write Your email" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
                                     </div>
+
                                     <div className='mt-5'>
                                         <button type='submit' className='focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full'>Submit Review</button>
                                     </div>

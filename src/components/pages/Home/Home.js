@@ -27,8 +27,8 @@ const Home = () => {
                         <br className="hidden md:inline lg:hidden" /> when people seek the best treatment for their dental issues.
                     </p>
                     <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                        <Link rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold rounded  bg-blue-700 text-white">Our BLogs</Link>
-                        <Link rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold border rounded  border-gray-500">Services</Link>
+                        <Link to='/blogs' rel="noopener noreferrer" className="px-8 py-3 text-lg font-semibold rounded  bg-blue-700 text-white">My BLogs</Link>
+                        <Link to='/services' rel="noopener noreferrer" className="px-8 py-3 text-lg font-semibold border rounded  border-gray-500">Services</Link>
                     </div>
                 </div>
                 <div className='flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left'>
@@ -45,8 +45,8 @@ const Home = () => {
                         </svg>
                     </span>
                     <span className='my-3'>
-                        <h2 className='text-lg md:text-2xl font-bold text-gray-900'>Tell Us Your Complaint</h2>
-                        <p className=' text-lg mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+                        <h2 className='text-lg md:text-2xl font-bold text-gray-900'>Find A Doctor</h2>
+                        <p className=' text-lg mt-2'>Here I proudly provide you with the best treatment ever which is mid-range cost.So, don't be late.</p>
                     </span>
                 </div>
 
@@ -58,8 +58,8 @@ const Home = () => {
 
                     </span>
                     <span className='my-3'>
-                        <h2 className='text-lg md:text-2xl font-bold'>Tell Us Your Complaint</h2>
-                        <p className=' text-lg mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+                        <h2 className='text-lg md:text-2xl font-bold'>Get an Appointment</h2>
+                        <p className=' text-lg mt-2'>You can get an appointment which is really easy. Phone me at 01647221566 and get your appointment.</p>
                     </span>
                 </div>
 
@@ -70,8 +70,8 @@ const Home = () => {
                         </svg>
                     </span>
                     <span className='my-3'>
-                        <h2 className='text-lg md:text-2xl font-bold text-gray-900'>Tell Us Your Complaint</h2>
-                        <p className='text-lg mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+                        <h2 className='text-lg md:text-2xl font-bold text-gray-900'>Solved Problem</h2>
+                        <p className='text-lg mt-2'>I believe you will get my best treatment and I always make sure that my patient get the best service ever.</p>
                     </span>
                 </div>
             </div>

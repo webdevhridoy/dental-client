@@ -2,7 +2,7 @@ import React from 'react';
 
 const ServicePageReview = ({ review }) => {
     console.log(review);
-    const { rewiewDetails, rating, name, userImage } = review;
+    const { rewiewDetails, rating, name, userImage, current } = review;
     return (
         <div className='shadow-xl my-3'>
             <div className="flex justify-between p-4 my-2">

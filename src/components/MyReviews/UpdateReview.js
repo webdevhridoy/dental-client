@@ -13,12 +13,8 @@ const UpdateReview = () => {
 
     useTitle('Update Your Product');
 
-    const current = new Date();
-    const times = current.toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: true
-    });
+    const current = new Date().toLocaleString();
+
 
     const handleSubmitReview = (event) => {
         event.preventDefault();
@@ -42,7 +38,7 @@ const UpdateReview = () => {
     const handleOnBlur = (event) => {
         const field = event.target.name;
         const value = event.target.value;
-        const newReview = { ...review };
+        const newReview = { ...review, current };
         newReview[field] = value;
         setReview(newReview);
         // console.log(newReview);
@@ -67,9 +63,6 @@ const UpdateReview = () => {
                     </div>
                     <div className="space-y-1 text-sm">
                         <input onBlur={handleOnBlur} required type="rating" name="rating" id="rating" placeholder="Rating: 5*" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
-                    </div>
-                    <div className="space-y-1 text-sm">
-                        <input onBlur={handleOnBlur} defaultValue={times} required name="time" id="time" placeholder="current time" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />
                     </div>
                     <div className="space-y-1 text-sm">
                         <input onBlur={handleOnBlur} defaultValue={user?.email} required type="email" name="email" id="email" placeholder="Write Your email" className="w-full px-4 py-3 border border-gray-600 rounded-md text-black " />

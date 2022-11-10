@@ -24,7 +24,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="text-sm text-color mb-10 f-f-l">
-                        <p> © 2020 Prodify. All rights reserved</p>
+                        <p> © 2022 Bandaid Dental. All rights reserved</p>
                     </div>
                 </div>
                 <div className="w-9/12  h-0.5 bg-gray-100 rounded-full" />

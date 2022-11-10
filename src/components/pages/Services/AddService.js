@@ -30,18 +30,15 @@ const AddService = () => {
             });
     };
 
-    const current = new Date();
-    const times = current.toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: true
-    });
+    const current = new Date().toLocaleString();
+
+
 
     const handleOnBlur = event => {
         const field = event.target.name;
         const value = event.target.value;
         // console.log(field, value);
-        const newProducts = { ...services };
+        const newProducts = { ...services, current };
         newProducts[field] = value;
         setServices(newProducts);
         // console.log(newProducts);
@@ -78,12 +75,6 @@ const AddService = () => {
                                 <span className="label-text">Photo URL</span>
                             </label>
                             <input onBlur={handleOnBlur} type="text" name="photoURL" placeholder="enter Photo ULR" className="input input-bordered rounded-lg w-3/4" />
-                        </div>
-                        <div className='flex flex-col md:flex-row justify-between items-center my-5'>
-                            <label className="label">
-                                <span className="label-text">Current Time</span>
-                            </label>
-                            <input onBlur={handleOnBlur} defaultValue={times} name="time" id="" className="input input-bordered rounded-lg w-3/4" />
                         </div>
                         <div className='flex flex-col md:flex-row justify-between items-center my-5'>
                             <label className="label">

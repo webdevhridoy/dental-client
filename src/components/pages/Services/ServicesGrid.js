@@ -5,8 +5,8 @@ import 'react-photo-view/dist/react-photo-view.css';
 
 
 const ServicesGrid = ({ product }) => {
-    const { photoURL, title, _id, rating, price, textarea, time } = product;
-    console.log(product);
+    const { photoURL, title, _id, rating, price, textarea, } = product;
+    // console.log(product);
     return (
         <div className="max-w-xs rounded-md shadow-md m-3 mx-auto">
             <PhotoProvider>
@@ -21,7 +21,7 @@ const ServicesGrid = ({ product }) => {
                     <p className='text-lg mt-1'>
                         {textarea.length > 100 ?
                             <>
-                                {textarea.slice(0, 100) + '...'}
+                                {textarea.slice(0, 80) + '...'}
                             </>
                             :
                             <>
@@ -31,14 +31,6 @@ const ServicesGrid = ({ product }) => {
                     <div className='flex justify-between items-center mt-5'>
                         <p className='text-lg'>Price: ${price}</p>
                         <p className='text-lg'>Rating: {rating}</p>
-                        <p className='text-lg flex justify-between items-center'>
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </span>
-                            <span>{time}</span>
-                        </p>
                     </div>
                 </div>
 
